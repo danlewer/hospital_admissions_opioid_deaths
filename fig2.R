@@ -5,19 +5,19 @@ ys <- 1:5
 
 deaths <- c(8.2, 7, 9.5, 6.5, 8)
 
-hstart <- list(pt5 = c(1.2, 2.5, 5.05, 6.1, 8),
+hstart <- list(pt5 = c(1.2, 2.5, 5.05, 6.1, 8), # hospital admission starts
                pt4 = 6.6,
                pt3 = c(0.7, 7),
                pt2 = c(0.5, 4),
                pt1 = c(3.7, 4, 6.6))
 
-hend <- list(pt5 = c(1.3, 2.65, 5.2, 6.2, 8.1),
+hend <- list(pt5 = c(1.3, 2.65, 5.2, 6.2, 8.1), # hospital admission ends
              pt4 = 7,
              pt3 = c(1.2, 7.2),
              pt2 = c(1.9, 4.2),
              pt1 = c(3.9, 4.6, 7.6))
 
-controls <- list(pt5 = c(4.8, 5.1, 5.65, 6.25, 7.4),
+controls <- list(pt5 = c(4.8, 5.1, 5.65, 6.25, 7.4), # control days
                  pt4 = c(3.7, 3.9, 5, 5.15, 6.4),
                  pt3 = c(6.2, 7.05, 7.35, 8, 8.15),
                  pt2 = c(3.1, 4.45, 4.9, 5.1, 5.5),
@@ -25,7 +25,7 @@ controls <- list(pt5 = c(4.8, 5.1, 5.65, 6.25, 7.4),
 
 controls_deaths <- mapply(append, x = controls, values = deaths, SIMPLIFY = F)
 
-status <- list(pt5 = c('E', 'A', 'E', 'C', 'E', 'D'),
+status <- list(pt5 = c('E', 'A', 'E', 'C', 'E', 'D'), # status of control days and death
                pt4 = c('E', 'E', 'E', 'E', 'E', 'B'),
                pt3 = c('E', 'A', 'D', 'E', 'E', 'E'),
                pt2 = c('E', 'E', 'E', 'E', 'E', 'E'),
