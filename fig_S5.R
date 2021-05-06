@@ -41,7 +41,6 @@ emf('sex_age.emf', height = 10, width = 8, family = 'Corbel')
 
 par(xpd = NA, mar = c(7, 7, 0, 7))
 plot(1, type = 'n', xlim = xlims, ylim = ylims, axes = F, xlab = NA, ylab = NA)
-#rect(xlims[1], ylims[1], xlims[2], ylims[2])
 segments(xlims[1] * 1.3, group_seps[c(2, 4, 6)], x1 = xlims[2])
 segments(xlims[1] * 1.3, ylims, x1 = xlims[2])
 segments(xlims[1], group_seps[c(1, 3, 5, 7)], x1 = xlims[2], lty = 3)
@@ -60,3 +59,15 @@ lapply(ar, function(x) with(x, arrows(xlims[2] * 1.3, y0 = o[1], y1 = o[2], leng
 title(xlab = 'Conditional odds ratio\nof opioid-related death')
 
 dev.off()
+
+# -------------
+# results table
+# =============
+
+vals <- c('e', 'l', 'u')
+f <- function(x) format(round(exp(x), 2), nsmall = 2, digits = 2)
+d[, (vals) := lapply(.SD, f), .SDcols = vals]
+d[, q := paste0(e, ' (', l, '-', u, ')')]
+
+results_table <- dcast(d, s + v ~ p, value.var = 'q')
+fwrite(results_table, 'age_sex_results_table.csv')
