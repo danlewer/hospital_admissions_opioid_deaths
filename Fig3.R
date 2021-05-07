@@ -22,10 +22,6 @@ xpos <- c(-9, -4, -2.5)
 #png('Fig3.png', height = 8, width = 10, units = 'in', res = 300, family = 'Corbel')
 tiff('Fig3.tiff', height = 8, width = 10, units = 'in', res = 600, family = 'Corbel')
 
-postscript("Fig3.eps",
-           horizontal = F, onefile = T, paper = "special", height = 3.5, width = 6, family = 'serif')
-
-
 par(xpd = NA)
 plot(1, type = 'n', xlim = c(min(xpos), 2.5), ylim = c(0, 25), axes = F, xlab = NA, ylab = NA)
 segments(0, 0.5, 0, 22.5, lty = 3)
